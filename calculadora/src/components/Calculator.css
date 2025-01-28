@@ -1,0 +1,157 @@
+/* Estilização geral */
+.calculator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 320px; /* Max largura para desktop */
+  margin: 20px auto;
+  background-color: #f9f9f9; /* Cor de fundo padrão (tema claro) */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.calculator.dark {
+  background-color: #333; /* Cor de fundo no tema escuro */
+  color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Display da calculadora */
+.display,
+.complete-operation {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #000;
+  margin-bottom: 10px;
+  text-align: right;
+  padding: 5px;
+  overflow: auto;
+  border-radius: 5px;
+  background-color: #fff; /* Fundo padrão (tema claro) */
+  color: #000;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.calculator.dark .display,
+.calculator.dark .complete-operation {
+  background-color: #444; /* Fundo no tema escuro */
+  color: #fff;
+  border: 1px solid #555;
+}
+
+.complete-operation {
+  height: 30px;
+}
+
+/* Estilo do grid de botões */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+/* Estilo dos botões */
+button {
+  padding: 12px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #e0e0e0; /* Botões no tema claro */
+  color: #000;
+  transition: background-color 0.3s, color 0.3s, transform 0.1s;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:hover {
+  background-color: #d6d6d6;
+}
+
+/* Botões no tema escuro */
+.calculator.dark button {
+  background-color: #555;
+  color: #fff;
+}
+
+.calculator.dark button:hover {
+  background-color: #666;
+}
+
+/* Botão da operação ativa */
+button.active {
+  background-color: #4caf50; /* Verde para operação ativa */
+  color: #fff;
+}
+
+/* Botão do tema */
+.theme-toggle {
+  margin-bottom: 15px;
+  padding: 8px 12px;
+  font-size: 14px;
+  background-color: #007bff; /* Azul claro */
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.theme-toggle:hover {
+  background-color: #0056b3;
+}
+
+.calculator.dark .theme-toggle {
+  background-color: #4caf50; /* Verde para o tema escuro */
+}
+
+.calculator.dark .theme-toggle:hover {
+  background-color: #388e3c;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .calculator {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .display,
+  .complete-operation {
+    height: 40px; /* Menor altura para telas pequenas */
+  }
+
+  button {
+    padding: 8px;
+    font-size: 14px; /* Reduzindo o tamanho da fonte para telas pequenas */
+  }
+}
+
+@media (max-width: 320px) {
+  .calculator {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .display,
+  .complete-operation {
+    font-size: 14px; /* Ajuste no tamanho da fonte do display */
+  }
+
+  button {
+    padding: 6px;
+    font-size: 12px; /* Aumentando a responsividade */
+  }
+
+  .buttons {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
